@@ -1,0 +1,23 @@
+{
+  "name": "ubahaja",
+  "version": "1.0.0",
+  "description": "WA Converter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify app.js -t babelify --outfile bundle.js",
+    "watch": "watchify app.js -t babelify -o bundle.js -v"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
+    "vue": "^3.2.23",
+    "watchify": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "babelify": "^10.0.0"
+  }
+}
