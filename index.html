@@ -7,27 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UbahAja</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <script defer src="bundle.js"></script>
 </head>
 
 <body>
     <div id="app">
-        <header-brand></header-brand>
+        <header-brand :msg="pesan"></header-brand>
         <main class="main-content">
-            <form class="image-converter">
+            <form class="image-converter" :style=" '--width:' + progresBar " @submit.prevent="convertImageFile" enctype="multipart/form-data">
                 <div class="form-control">
                     <div class="form-control__text">
-                        UBAH 
+                        UBAH
                         <selector-list :list="items" v-model:comp="from"></selector-list>
                         KE
                         <selector-list :list="items" v-model:comp="to"></selector-list>
                     </div>
                 </div>
-                <div class="form-control">
-                    <input type="file">
+                <div class="form-control input-file">
+                    <input-image-file ref="imageFile" :type="from"></input-image-file>
+                </div>
+                <div class="form-control submit-button">
+                    <button class="btn" type="submit">Ubah Aja</button>
                 </div>
             </form>
         </main>
+        <footer class="footer">Made With ❤️ By Kholil(<a href="https://github.com/nyanyaon">@nyanyaon</a>)</footer>
     </div>
 </body>
 
