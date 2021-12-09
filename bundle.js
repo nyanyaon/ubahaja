@@ -119,12 +119,12 @@ app.component('selector-list', {
   emits: ['update:comp'],
   computed: {
     textLength: function textLength() {
-      return "calc(".concat(this.comp.length, "ch + 10px)");
+      return "calc(".concat(this.comp.length, "ch + 0.8rem)");
     }
   },
   methods: {
-    showList: function showList() {
-      this.isClicked = true;
+    toggleList: function toggleList() {
+      this.isClicked = !this.isClicked;
     },
     hideList: function hideList() {
       this.isClicked = false;
@@ -137,7 +137,7 @@ app.component('selector-list', {
       this.hideList();
     }
   },
-  template: "\n    <div class=\"selector-list\">\n        <input class=\"selector\" :style=\"{ width: textLength }\" :value=\"comp\" type=\"text\" @input=\"changeInput\" @click=\"showList\">\n        <ul v-if=\"isClicked\" class=\"select-list\" @mouseleave=\"hideList\">\n            <li class=\"select-item\" v-for=\"item in list\" @click=\"setCompValue\"> {{ item }} </li>\n        </ul>\n    </div>\n    "
+  template: "\n    <div class=\"selector-list\">\n        <div class=\"input-list\">\n            <input class=\"selector\" :style=\"{ width: textLength }\" :value=\"comp\" type=\"text\" @input=\"changeInput\"/>\n            <button class=\"selector-btn\" @click=\"toggleList\" ><i class=\"fas fa-chevron-down\"></i></button>\n        </div>\n        <ul v-if=\"isClicked\" class=\"select-list\" @mouseleave=\"hideList\">\n            <li class=\"select-item\" v-for=\"item in list\" @click=\"setCompValue\"> {{ item }} </li>\n        </ul>\n    </div>\n    "
 });
 app.component('input-image-file', {
   props: ['type'],
