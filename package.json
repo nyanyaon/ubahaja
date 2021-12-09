@@ -1,0 +1,33 @@
+{
+    "name": "ubahaja",
+    "version": "0.0.2a",
+    "description": "convert anything with this app",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "browserify app.js -t babelify -o bundle.js",
+      "watch": "watchify app.js -t babelify -o bundle.js -v"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@babel/polyfill": "^7.12.1",
+      "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+      "@vue/babel-preset-jsx": "^1.2.4",
+      "vue": "^3.2.24",
+      "wasm-imagemagick": "^1.2.8",
+      "watchify": "^4.0.0",
+      "web-worker": "^1.2.0"
+    },
+    "devDependencies": {
+      "@babel/core": "^7.16.0",
+      "@babel/plugin-transform-runtime": "^7.16.4",
+      "@babel/preset-env": "^7.16.4",
+      "@babel/runtime": "^7.16.3",
+      "babelify": "^10.0.0",
+      "wasmify": "^4.0.0",
+      "webpack": "^5.65.0",
+      "webpack-cli": "^4.9.1"
+    }
+  }
+  
