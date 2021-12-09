@@ -1,7 +1,7 @@
 {
     "name": "ubahaja",
-    "version": "1.0.0",
-    "description": "WA Converter",
+    "version": "0.0.2a",
+    "description": "convert anything with this app",
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
