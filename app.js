@@ -94,12 +94,12 @@ app.component('selector-list', {
     emits: ['update:comp'],
     computed: {
         textLength() {
-            return `calc(${this.comp.length}ch + 10px)` ;
+            return `calc(${this.comp.length}ch + 0.8rem)` ;
         }
     },
     methods: {
-        showList() {
-            this.isClicked = true;
+        toggleList() {
+            this.isClicked = !this.isClicked;
         },
         hideList() {
             this.isClicked = false;
@@ -115,7 +115,10 @@ app.component('selector-list', {
     },
     template: `
     <div class="selector-list">
-        <input class="selector" :style="{ width: textLength }" :value="comp" type="text" @input="changeInput" @click="showList">
+        <div class="input-list">
+            <input class="selector" :style="{ width: textLength }" :value="comp" type="text" @input="changeInput"/>
+            <button class="selector-btn" @click="toggleList" ><i class="fas fa-chevron-down"></i></button>
+        </div>
         <ul v-if="isClicked" class="select-list" @mouseleave="hideList">
             <li class="select-item" v-for="item in list" @click="setCompValue"> {{ item }} </li>
         </ul>
