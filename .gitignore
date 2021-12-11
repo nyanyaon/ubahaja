@@ -1,4 +1,5 @@
 /node_modules
-babel.config.js
-bundle.js
+/src
+/assets
+webpack.config.js
 package-lock.json
