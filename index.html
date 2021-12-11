@@ -14,24 +14,11 @@
 <body>
     <div id="app">
         <header-brand :msg="pesan"></header-brand>
-        <main class="main-content">
-            <form class="image-converter" :style=" '--width:' + progresBar " @submit.prevent="convertImageFile" enctype="multipart/form-data">
-                <div class="form-control">
-                    <div class="form-control__text">
-                        UBAH
-                        <selector-list :list="items" v-model:comp="from"></selector-list>
-                        KE
-                        <selector-list :list="items" v-model:comp="to"></selector-list>
-                    </div>
-                </div>
-                <div class="form-control input-file">
-                    <input-image-file ref="imageFile" :type="from"></input-image-file>
-                </div>
-                <div class="form-control submit-button">
-                    <button class="btn" type="submit">Ubah Aja</button>
-                </div>
-            </form>
-        </main>
+        <div>
+            <router-link to="/">Home</router-link>
+            <router-link to="/image">Image</router-link>
+        </div>
+        <router-view></router-view>
         <footer class="footer">Made With ❤️ By Kholil(<a href="https://github.com/nyanyaon">@nyanyaon</a>)</footer>
     </div>
 </body>

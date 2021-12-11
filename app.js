@@ -1,6 +1,48 @@
 import * as Vue from 'vue';
+import * as VueRouter from 'vue-router';
 import { call } from 'wasm-imagemagick';
 
+
+const Home = {
+    template:  `
+        <main class="main-content">
+            <h1>Home</h1>
+        </main>
+    `
+};
+
+const Image = {
+    template: `
+    <main class="main-content">
+        <form class="image-converter" :style=" '--width:' + progresBar " @submit.prevent="convertImageFile" enctype="multipart/form-data">
+            <div class="form-control">
+                <div class="form-control__text">
+                    UBAH
+                    <selector-list :list="items" v-model:comp="from"></selector-list>
+                    KE
+                    <selector-list :list="items" v-model:comp="to"></selector-list>
+                </div>
+            </div>
+            <div class="form-control input-file">
+                <input-image-file ref="imageFile" :type="from"></input-image-file>
+            </div>
+            <div class="form-control submit-button">
+                <button class="btn" type="submit">Ubah Aja</button>
+            </div>
+        </form>
+    </main>
+    `
+};
+
+const routes = [
+    { path: '/', component: Home},
+    { path: '/image', component: Image}
+];
+
+const router = VueRouter.createRouter({
+    history: VueRouter.createWebHashHistory(),
+    routes,
+})
 
 const app = Vue.createApp({
     data() {
@@ -160,7 +202,8 @@ app.component('input-image-file', {
     </label>
     <input type="file" :accept="fileType" id="image" name="image" @change="observerImage">
     `
-})
+});
 
+app.use(router);
 
 app.mount('#app');
